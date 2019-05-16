@@ -1,5 +1,5 @@
 SUBDIRS := $(wildcard */.)  # e.g. "foo/. bar/."
-TARGETS := all tars tarlist  # whatever else, but must not contain '/'
+TARGETS := full all tars tarlist  # whatever else, but must not contain '/'
 
 # foo/.all bar/.all foo/.clean bar/.clean
 SUBDIRS_TARGETS := $(foreach t,$(TARGETS),$(addsuffix $t,$(SUBDIRS)))
@@ -17,4 +17,3 @@ $(TARGETS) : % : $(addsuffix %,$(SUBDIRS))
 #   $(@F:.%=%) is just all
 $(SUBDIRS_TARGETS) :
 	$(MAKE) -C $(@D) $(@F:.%=%)
-
