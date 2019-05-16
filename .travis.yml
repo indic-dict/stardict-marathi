@@ -10,8 +10,10 @@ git:
 
 script:
   - make all
+  - git status
   - git add -A
   - git commit -m "Add auto-built files."
+  - git status
 
 deploy:
   provider: pages
